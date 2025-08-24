@@ -16,5 +16,5 @@ O nome "*Logus*" deriva do grego λόγος (lógos), que significa palavra, raz
     Use a lógica: A partir das pistas, descubra a palavra secreta.
 
 ### Tecnologias Utilizadas
->   Frontend: React.js com JavaScript
->   Deploy: Vercel (frontend)
+    > Frontend: React.js com JavaScript
+    > Deploy: Vercel (frontend)
