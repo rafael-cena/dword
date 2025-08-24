@@ -8,12 +8,12 @@ O nome "*Logus*" deriva do grego λόγος (lógos), que significa palavra, raz
 ## Como Jogar
     Faça seu primeiro palpite: Digite qualquer palavra válida de 5 letras
     
-### Analise as pistas:
+    Analise as pistas:
     🟩 Verde: Letra na posição correta
     🟨 Amarelo: Letra presente na palavra, mas em outra posição
     ⬜ Cinza: Letra não presente na palavra
 
-Use a lógica: A partir das pistas, descubra a palavra secreta.
+    Use a lógica: A partir das pistas, descubra a palavra secreta.
 
 ### Tecnologias Utilizadas
 >   Frontend: React.js com JavaScript

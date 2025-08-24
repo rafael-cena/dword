@@ -1,13 +1,41 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root {
+  --bg-light: #FFFFFF;
+  --border-light: #c0b182;
+  --gold-primary-light: #D4AF37;
+  --gold-accent-light: #FFD700;
+  --text-light: #333333;
+
+  --bg-dark: #121212;
+  --border-dark: #5c5748;
+  --gold-primary-dark: #D4AF37;
+  --gold-accent-dark: #B8860B;
+  --text-dark: #E0E0E0;
+
+  --bg: var(--bg-dark);
+  --text: var(--text-dark);
+  --gold: var(--gold-primary-dark);
+  --gold-light: var(--gold-accent-dark);
+  --border: var(--border-dark);
 }
+
+#escuro {
+  --bg: var(--bg-dark);
+  --text: var(--text-dark);
+  --gold: var(--gold-primary-dark);
+  --gold-light: var(--gold-accent-dark);
+  --border: var(--border-dark);
+}
+
+#claro {
+  --bg: var(--bg-light);
+  --text: var(--text-light);
+  --gold: var(--gold-primary-light);
+  --gold-light: var(--gold-accent-light);
+  --border: var(--border-light);
+}
+
