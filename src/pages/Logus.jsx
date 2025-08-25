@@ -4,7 +4,6 @@ import Page from "../templates/Page";
 import all_words from '../data/words.json';
 import toast from "react-hot-toast";
 import Keyboard from "../components/Keyboard";
-import { Link } from "react-router";
 import Window from "../components/Window/Window";
 import { Contexto } from "../App";
 import RowInput from "../components/rowInputs/RowInput";
