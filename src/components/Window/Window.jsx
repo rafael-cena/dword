@@ -84,6 +84,9 @@ export default function Window({ children }) {
                 onTouchStart={handleTouchStart}
                 onTouchMove={handleTouchMove}
             >
+                <h2 className="window-title" title="a palavra">
+                    dWord - the word
+                </h2>
                 <span className='btn-close' onClick={() => setOptions(false)}>
                     X
                 </span>

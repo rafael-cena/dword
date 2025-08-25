@@ -8,7 +8,7 @@ import Window from "../components/Window/Window";
 import { Contexto } from "../App";
 import RowInput from "../components/rowInputs/RowInput";
 
-export default function Logus() {
+export default function DWord() {
     const { options } = useContext(Contexto);
     const [seconds, setSeconds] = useState(0);
     const [response, setResponse] = useState([]);
@@ -901,7 +901,7 @@ export default function Logus() {
                     className="content-header"
                 >
                     <h2 className="ch-title">
-                        Logus
+                        dWord
                     </h2>
                 </article>
                 <section className="main-content">
@@ -1093,27 +1093,27 @@ export default function Logus() {
                                 keys={[
                                     {
                                         id: 'C1',
-                                        letter: 'L',
+                                        letter: 'D',
                                         class: 'certo'
                                     },
                                     {
                                         id: 'C2',
-                                        letter: 'O',
+                                        letter: 'W',
                                         class: 'certo'
                                     },
                                     {
                                         id: 'C3',
-                                        letter: 'G',
+                                        letter: 'O',
                                         class: 'certo'
                                     },
                                     {
                                         id: 'C4',
-                                        letter: 'U',
+                                        letter: 'R',
                                         class: 'certo'
                                     },
                                     {
                                         id: 'C5',
-                                        letter: 'S',
+                                        letter: 'D',
                                         class: 'certo'
                                     }
                                 ]}

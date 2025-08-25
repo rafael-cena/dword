@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router";
-import Logus from "./pages/Logus";
+import DWord from "./pages/DWord";
 import { createContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
 
@@ -28,7 +28,7 @@ function App() {
     <Contexto.Provider value={{ theme, setTheme, options, setOptions }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Logus />} />
+          <Route path="/" element={<DWord />} />
         </Routes>
         <Toaster />
       </BrowserRouter>

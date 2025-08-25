@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Contexto } from '../App';
-import logus_claro from '../assets/logus-claro.png';
-import logus_escuro from '../assets/logus-escuro.png';
+import dword_claro from '../assets/dword-claro.png';
+import dword_escuro from '../assets/dword-escuro.png';
 
 export default function Navbar() {
     const { theme, setOptions } = useContext(Contexto);
@@ -26,8 +26,8 @@ export default function Navbar() {
 
     return <nav>
         <section className={`navbar ${show ? 'show' : 'hide'}`}>
-            <img onClick={() => setOptions(true)} src={theme === 'escuro' ? logus_escuro : logus_claro} alt="logus" />
-            logus
+            <img onClick={() => setOptions(true)} src={theme === 'escuro' ? dword_escuro : dword_claro} alt="dword" />
+            dWord
         </section>
     </nav>
 }

@@ -1,9 +1,7 @@
-# Logus.fun
+# dWord.fun
 
-## O que é o Logus?
-> *Logus* é um jogo de raciocínio linguístico onde o objetivo é descobrir uma <ins>palavra secreta</ins> em até sete tentativas. A cada palpite, o jogo fornece pistas visuais que indicam quais letras estão corretas, na posição errada ou inexistentes na palavra do dia.
-
-O nome "*Logus*" deriva do grego λόγος (lógos), que significa palavra, razão ou discurso - representando perfeitamente a essência deste desafio que combina vocabulário e pensamento lógico.
+## O que é o dWord?
+> *dWord* é um jogo de raciocínio linguístico onde o objetivo é descobrir uma <ins>palavra secreta</ins> em até sete tentativas. A cada palpite, o jogo fornece pistas visuais que indicam quais letras estão corretas, na posição errada ou inexistentes na palavra do dia.
 
 ## Como Jogar
     Faça seu primeiro palpite: Digite qualquer palavra válida de 5 letras
@@ -17,4 +15,4 @@ O nome "*Logus*" deriva do grego λόγος (lógos), que significa palavra, raz
 
 ### Tecnologias Utilizadas
     > Frontend: React.js com JavaScript
-    > Deploy: Vercel (frontend)
+    > Deploy: Vercel
