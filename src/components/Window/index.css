@@ -24,12 +24,12 @@
     box-shadow: inset 0 0 4px var(--border);
 
     .btn-close {
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center !important;
         margin: 4px 0;
         width: 20px;
         height: 20px;
-        display: flex;
-        justify-content: center !important;
-        align-items: center !important;
         cursor: pointer;
         background-color: #EF4444;
         color: #ffffff;
