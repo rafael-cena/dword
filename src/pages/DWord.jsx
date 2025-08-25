@@ -995,28 +995,28 @@ export default function DWord() {
                             <RowInput
                                 keys={[
                                     {
-                                        id: 'C1',
-                                        letter: 'L',
-                                        class: 'certo'
-                                    },
-                                    {
-                                        id: 'C2',
-                                        letter: 'O',
-                                        class: 'certo'
-                                    },
-                                    {
                                         id: 'e1',
-                                        letter: 'C',
-                                        class: 'errado'
-                                    },
-                                    {
-                                        id: 'e2',
                                         letter: 'A',
                                         class: 'errado'
                                     },
                                     {
+                                        id: 'e2',
+                                        letter: 'G',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'C1',
+                                        letter: 'O',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C2',
+                                        letter: 'R',
+                                        class: 'certo'
+                                    },
+                                    {
                                         id: 'e3',
-                                        letter: 'L',
+                                        letter: 'A',
                                         class: 'errado'
                                     }
                                 ]}
@@ -1028,27 +1028,27 @@ export default function DWord() {
                                 keys={[
                                     {
                                         id: 'e4',
-                                        letter: 'C',
+                                        letter: 'B',
                                         class: 'errado'
                                     },
                                     {
                                         id: 'Q1',
-                                        letter: 'U',
-                                        class: 'quase'
-                                    },
-                                    {
-                                        id: 'Q2',
-                                        letter: 'L',
+                                        letter: 'O',
                                         class: 'quase'
                                     },
                                     {
                                         id: 'e5',
-                                        letter: 'T',
+                                        letter: 'N',
                                         class: 'errado'
                                     },
                                     {
+                                        id: 'Q2',
+                                        letter: 'D',
+                                        class: 'quase'
+                                    },
+                                    {
                                         id: 'e7',
-                                        letter: 'A',
+                                        letter: 'E',
                                         class: 'errado'
                                     }
                                 ]}
@@ -1060,27 +1060,27 @@ export default function DWord() {
                                 keys={[
                                     {
                                         id: 'e-8',
-                                        letter: 'E',
+                                        letter: 'F',
                                         class: 'errado'
                                     },
                                     {
                                         id: 'e-9',
-                                        letter: 'R',
-                                        class: 'errado'
-                                    },
-                                    {
-                                        id: 'e-10',
-                                        letter: 'R',
-                                        class: 'errado'
-                                    },
-                                    {
-                                        id: 'e-11',
                                         letter: 'A',
                                         class: 'errado'
                                     },
                                     {
+                                        id: 'e-10',
+                                        letter: 'L',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e-11',
+                                        letter: 'H',
+                                        class: 'errado'
+                                    },
+                                    {
                                         id: 'e-12',
-                                        letter: 'R',
+                                        letter: 'A',
                                         class: 'errado'
                                     }
                                 ]}
