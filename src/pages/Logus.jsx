@@ -1,12 +1,16 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import Page from "../templates/Page";
 
 import all_words from '../data/words.json';
 import toast from "react-hot-toast";
 import Keyboard from "../components/Keyboard";
 import { Link } from "react-router";
+import Window from "../components/Window/Window";
+import { Contexto } from "../App";
+import RowInput from "../components/rowInputs/RowInput";
 
 export default function Logus() {
+    const { options } = useContext(Contexto);
     const [seconds, setSeconds] = useState(0);
     const [response, setResponse] = useState([]);
     const [words, setWords] = useState([]);
@@ -375,6 +379,7 @@ export default function Logus() {
             })
             setResponse(inArrayObj);
         }
+
     }, [words]);
 
     // funcao para alteracoes na palavra e gerenciador de clique de posicao
@@ -395,7 +400,7 @@ export default function Logus() {
                 const pos = words.findIndex(word => word === w);
                 if (pos < 0 || pos > words.length) {
                     flag = false;
-                    toast.error('essa palavra não está na Bíblia');
+                    toast.error('essa palavra não é aceita');
                 }
                 else {
                     // para controlar classes do teclado virtual
@@ -483,57 +488,58 @@ export default function Logus() {
         }
 
         const handleKeyDown = (e) => {
-            if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowLeft' || (e.key === 'Backspace' && game[position.row][position.column].letter === '')) {
-                e.preventDefault();
+            if (!options)
+                if (e.key === 'Tab' || e.key === 'ArrowRight' || e.key === 'ArrowLeft' || (e.key === 'Backspace' && game[position.row][position.column].letter === '')) {
+                    e.preventDefault();
 
-                if ((e.key === 'Tab' && !e.shiftKey) || e.key === 'ArrowRight') {
-                    // Tab normal || ArrowRight
-                    if (position.column < 4) {
-                        setPosition(prev => ({
-                            column: prev.column + 1,
-                            row: prev.row
-                        }))
-                    }
-                }
-                if ((e.key === 'Tab' && e.shiftKey) || e.key === 'ArrowLeft' || (e.key === 'Backspace' && game[position.row][position.column].letter === '')) {
-                    // Shift+Tab || ArrowLeft || Backspace vazio
-                    if (position.column > 0) {
-                        setPosition(prev => ({
-                            column: prev.column - 1,
-                            row: prev.row
-                        }))
-                    }
-                }
-            }
-            else if (e.key === 'Backspace' && game[position.row][position.column].letter !== '') {
-                const newGame = [...game];
-                newGame[position.row][position.column].letter = '';
-                setGame(newGame);
-            }
-            else if (/^[a-zA-Z]$/.test(e.key)) {
-                const newGame = [...game];
-                newGame[position.row][position.column].letter = e.key.toUpperCase();
-                setGame(newGame);
-                setPosition(prev => (
-                    prev.column < 4 ?
-                        {
-                            column: prev.column + 1,
-                            row: prev.row
+                    if ((e.key === 'Tab' && !e.shiftKey) || e.key === 'ArrowRight') {
+                        // Tab normal || ArrowRight
+                        if (position.column < 4) {
+                            setPosition(prev => ({
+                                column: prev.column + 1,
+                                row: prev.row
+                            }))
                         }
-                        :
-                        prev
-                ))
-            }
-            else if (e.key === 'Enter') {
-                handleSubmit();
-            }
+                    }
+                    if ((e.key === 'Tab' && e.shiftKey) || e.key === 'ArrowLeft' || (e.key === 'Backspace' && game[position.row][position.column].letter === '')) {
+                        // Shift+Tab || ArrowLeft || Backspace vazio
+                        if (position.column > 0) {
+                            setPosition(prev => ({
+                                column: prev.column - 1,
+                                row: prev.row
+                            }))
+                        }
+                    }
+                }
+                else if (e.key === 'Backspace' && game[position.row][position.column].letter !== '') {
+                    const newGame = [...game];
+                    newGame[position.row][position.column].letter = '';
+                    setGame(newGame);
+                }
+                else if (/^[a-zA-Z]$/.test(e.key)) {
+                    const newGame = [...game];
+                    newGame[position.row][position.column].letter = e.key.toUpperCase();
+                    setGame(newGame);
+                    setPosition(prev => (
+                        prev.column < 4 ?
+                            {
+                                column: prev.column + 1,
+                                row: prev.row
+                            }
+                            :
+                            prev
+                    ))
+                }
+                else if (e.key === 'Enter') {
+                    handleSubmit();
+                }
         };
 
         window.addEventListener("keydown", handleKeyDown);
         return () => {
             window.removeEventListener("keydown", handleKeyDown);
         }
-    }, [position, game, keys, response, words]);
+    }, [position, game, keys, response, words, options]);
 
     // resetar o jogo
     const handleReset = () => {
@@ -888,7 +894,10 @@ export default function Logus() {
 
     return (
         <Page>
-            <div className="main-container">
+            <div
+                className="main-container"
+                style={options ? { pointerEvents: 'none', filter: 'blur(4px)' } : { pointerEvents: 'all' }}
+            >
                 <article
                     className="content-header"
                 >
@@ -967,6 +976,153 @@ export default function Logus() {
                     }
                 </section>
             </div>
+            {
+                options ?
+                    <Window>
+                        <h4 className="window-subtitle">
+                            Descubra a palavra certa com sete tentativas.
+                        </h4>
+
+                        <section className="window-toPlay">
+                            <p className="wp-text">
+                                Faça seu primeiro palpite: Digite qualquer palavra válida de 5 letras.
+                            </p>
+                            <p className="wp-text">
+                                Analise as dicas:
+                            </p>
+                            <p className="wp-subtext">
+                                Se ficou verde, letra na posição correta!
+                            </p>
+                            <RowInput
+                                keys={[
+                                    {
+                                        id: 'C1',
+                                        letter: 'L',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C2',
+                                        letter: 'O',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'e1',
+                                        letter: 'C',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e2',
+                                        letter: 'A',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e3',
+                                        letter: 'L',
+                                        class: 'errado'
+                                    }
+                                ]}
+                            />
+                            <p className="wp-subtext">
+                                Se ficou amarelo, letra presente na palavra, mas em outra posição!
+                            </p>
+                            <RowInput
+                                keys={[
+                                    {
+                                        id: 'e4',
+                                        letter: 'C',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'Q1',
+                                        letter: 'U',
+                                        class: 'quase'
+                                    },
+                                    {
+                                        id: 'Q2',
+                                        letter: 'L',
+                                        class: 'quase'
+                                    },
+                                    {
+                                        id: 'e5',
+                                        letter: 'T',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e7',
+                                        letter: 'A',
+                                        class: 'errado'
+                                    }
+                                ]}
+                            />
+                            <p className="wp-subtext">
+                                Se ficou cinza, a letra não está presente na palavra!
+                            </p>
+                            <RowInput
+                                keys={[
+                                    {
+                                        id: 'e-8',
+                                        letter: 'E',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e-9',
+                                        letter: 'R',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e-10',
+                                        letter: 'R',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e-11',
+                                        letter: 'A',
+                                        class: 'errado'
+                                    },
+                                    {
+                                        id: 'e-12',
+                                        letter: 'R',
+                                        class: 'errado'
+                                    }
+                                ]}
+                            />
+
+                            <p className="wp-subtext">
+                                Use a lógica, a partir das pistas, descubra a <i>palavra secreta</i>.
+                            </p>
+                            <RowInput
+                                keys={[
+                                    {
+                                        id: 'C1',
+                                        letter: 'L',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C2',
+                                        letter: 'O',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C3',
+                                        letter: 'G',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C4',
+                                        letter: 'U',
+                                        class: 'certo'
+                                    },
+                                    {
+                                        id: 'C5',
+                                        letter: 'S',
+                                        class: 'certo'
+                                    }
+                                ]}
+                            />
+                        </section>
+                    </Window>
+                    : ''
+            }
         </Page>
     );
 }

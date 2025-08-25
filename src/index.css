@@ -81,7 +81,7 @@ nav {
 
   img {
     max-height: 30px;
-    border-radius: 8px; 
+    border-radius: 8px;
   }
 }
 
@@ -141,7 +141,6 @@ nav {
   width: 100dvw;
   height: 100dvh;
   box-sizing: border-box;
-  padding-top: 6dvh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -301,4 +300,49 @@ nav {
   color: var(--text);
   box-shadow: 0 0 8px var(--border);
   cursor: pointer;
+}
+
+.row-inputs {
+  width: 100%;
+  height: fit-content;
+  margin: 0 0 12px;
+  gap: 16px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  .letter-input {
+    width: 48px;
+    height: 48px;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 36px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 8px;
+    border: 1px solid var(--bg);
+    font-family: "Alumni Sans SC", sans-serif;
+    font-style: italic;
+    font-weight: bold;
+    background: var(--text);
+    color: var(--bg);
+  }
+
+  .certo {
+    background-color: green;
+    color: var(--text);
+    box-shadow: inset 0 0 2px var(--bg);
+  }
+
+  .quase {
+    background-color: yellow;
+    color: var(--bg);
+    box-shadow: inset 0 0 2px var(--bg);
+  }
+
+  .errado {
+    background-color: var(--border);
+    color: var(--text);
+    box-shadow: inset 0 0 4px var(--bg);
+  }
 }
