@@ -5,16 +5,19 @@
 
 :root {
   --bg-light: #f6f6f6;
+  --bg-secondary-light: #d9d9d9;
   --text-light: #111111;
   --border-light: #c0b182;
-  --gold-light: #ffe6bc;
+  --gold-light: #d8b270;
 
   --bg-dark: #111111;
+  --bg-secondary-dark: #343434;
   --text-dark: #f6f6f6;
   --border-dark: #2f2f2f;
   --gold-dark: #ffcb74;
 
   --bg: var(--bg-dark);
+  --bg-secondary: var(--bg-secondary-dark);
   --text: var(--text-dark);
   --border: var(--border-dark);
   --gold: var(--gold-dark);
@@ -31,6 +34,7 @@ body {
 
 #escuro {
   --bg: var(--bg-dark);
+  --bg-secondary: var(--bg-secondary-dark);
   --text: var(--text-dark);
   --border: var(--border-dark);
   --gold: var(--gold-dark);
@@ -38,9 +42,18 @@ body {
 
 #claro {
   --bg: var(--bg-light);
+  --bg-secondary: var(--bg-secondary-light);
   --text: var(--text-light);
   --border: var(--border-light);
   --gold: var(--gold-light);
+}
+
+.show {
+  transform: translateY(0);
+}
+
+.hide {
+  transform: translateY(-500%);
 }
 
 .page {
@@ -60,7 +73,7 @@ nav {
   top: 0;
   left: 0;
   pointer-events: none;
-  padding: 4px 0;
+  padding: 12px 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -69,7 +82,8 @@ nav {
 .navbar {
   background: var(--bg);
   padding: 1dvh 2dvw;
-  min-width: 20dvw;
+  width: max(20dvw, 200px);
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -82,29 +96,74 @@ nav {
   img {
     max-height: 30px;
     border-radius: 8px;
+    cursor: pointer;
   }
 }
 
 .footer {
+  border-top: 1px solid var(--border);
+  box-shadow: 0 -2px 4px var(--border);
+  border-radius: 8px 8px 0 0;
   background: var(--border);
   width: 100dvw;
   padding: 6dvh 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  .footer-img {
-    display: flex;
+  .footer-g2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
-    justify-content: end;
-    padding-right: 1dvw;
+    justify-content: center;
+    padding: 1dvh 0;
     box-sizing: border-box;
 
-    img {
-      cursor: default;
-      width: 100px;
-      height: 100px;
-      border-radius: 16px;
+    .footer-img {
+      display: flex;
+      align-items: center;
+      justify-content: end;
+      padding-right: 1dvw;
+      box-sizing: border-box;
+
+      img {
+        cursor: default;
+        width: 100px;
+        height: 100px;
+        border-radius: 16px;
+      }
+    }
+  }
+
+  .footer-theme {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    border: 1px solid var(--border);
+    box-sizing: border-box;
+    background-color: var(--bg);
+    border-radius: 10px;
+    width: fit-content;
+
+    .btn-theme {
+      cursor: pointer;
+      border: none;
+      font-size: max(12px, 1dvw);
+      width: 60px;
+      padding: 4px 0;
+      border-radius: 8px;
+      background: var(--bg);
+      color: var(--text);
+      opacity: 0.8;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .active {
+      background-color: var(--text);
+      color: var(--bg);
+      opacity: 1;
     }
   }
 
@@ -233,19 +292,16 @@ nav {
   .certo {
     background-color: green;
     color: var(--bg);
-    text-shadow: 0 0 1px var(--gold);
   }
 
   .quase {
     background-color: yellow;
     color: var(--bg);
-    text-shadow: 0 0 1px var(--text);
   }
 
   .errado {
-    background-color: var(--border);
+    background-color: var(--bg-secondary);
     color: var(--bg);
-    text-shadow: 0 0 1px var(--gold-light);
   }
 }
 
@@ -296,9 +352,9 @@ nav {
   padding: 8px 20px;
   border: none;
   border-radius: 8px;
-  background: var(--border);
+  background: var(--bg-secondary);
   color: var(--text);
-  box-shadow: 0 0 8px var(--border);
+  box-shadow: 0 0 8px var(--bg-secondary);
   cursor: pointer;
 }
 
@@ -330,19 +386,24 @@ nav {
 
   .certo {
     background-color: green;
-    color: var(--text);
-    box-shadow: inset 0 0 2px var(--bg);
+    color: var(--bg);
   }
 
   .quase {
     background-color: yellow;
     color: var(--bg);
-    box-shadow: inset 0 0 2px var(--bg);
+    text-shadow: 0 0 2px var(--text);
   }
 
   .errado {
-    background-color: var(--border);
-    color: var(--text);
-    box-shadow: inset 0 0 4px var(--bg);
+    background-color: var(--bg-secondary);
+    color: var(--bg);
+    text-shadow: 0 0 2px var(--text);
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1dvh 4dvw;
   }
 }

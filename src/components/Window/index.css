@@ -7,7 +7,7 @@
     z-index: 1001;
     display: flex;
     flex-direction: column;
-    background-color: var(--border);
+    background-color: var(--bg-secondary);
     box-shadow: 0 0 4px var(--gold);
 }
 
@@ -28,8 +28,8 @@
         width: 20px;
         height: 20px;
         display: flex;
-        justify-content: center;
-        align-items: center;
+        justify-content: center !important;
+        align-items: center !important;
         cursor: pointer;
         background-color: #EF4444;
         color: #ffffff;
