@@ -9,7 +9,7 @@ export default function Navbar() {
     return <nav>
         <section className="navbar">
             <img onClick={() => setOptions(true)} src={theme === 'escuro' ? logus_escuro : logus_claro} alt="logus" />
-            game mode
+            logus
         </section>
     </nav>
 }

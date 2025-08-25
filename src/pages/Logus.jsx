@@ -964,13 +964,13 @@ export default function Logus() {
                                             </h3>
                                         </>
                                 }
-                                <Link className="gw-search">Buscar por <q>{response.map(l => l.letter).join("")}</q> na Bíblia</Link>
                                 <button
                                     className="gw-btn"
                                     onClick={handleReset}
                                 >
                                     Novo jogo
                                 </button>
+                                <br />
                             </div>
                             : ''
                     }
