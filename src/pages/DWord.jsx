@@ -1252,13 +1252,15 @@ export default function DWord() {
     useEffect(() => {
         if (position.row > 6) {
             toast.error('a palavra era ' + response.map(obj => obj.letter).join(""))
-            const date = new Date().toLocaleDateString();
-            localStorage.setItem("dWord-daily", JSON.stringify({
-                date: date,
-                status: false,
-                game: game,
-                keys: keys
-            }));
+            if (opt === 0) {
+                const date = new Date().toLocaleDateString();
+                localStorage.setItem("dWord-daily", JSON.stringify({
+                    date: date,
+                    status: false,
+                    game: game,
+                    keys: keys
+                }));
+            }
         }
     }, [position, response, game, keys])
 
@@ -1287,7 +1289,7 @@ export default function DWord() {
 
     // se ganhou salva 
     useEffect(() => {
-        if (win) {
+        if (win && opt === 0) {
             const date = new Date().toLocaleDateString();
             localStorage.setItem("dWord-daily", JSON.stringify({
                 date: date,
