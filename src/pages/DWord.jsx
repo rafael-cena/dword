@@ -380,6 +380,352 @@ export default function DWord() {
                     localStorage.removeItem('dWord-daily');
                 }
             }
+            else {
+                setWin(false);
+                setGame([
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l1-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l1-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l1-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l1-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l1-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l2-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l2-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l2-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l2-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l2-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l3-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l3-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l3-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l3-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l3-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l4-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l4-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l4-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l4-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l4-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l5-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l5-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l5-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l5-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l5-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l6-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l6-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l6-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l6-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l6-w5'
+                        }
+                    ],
+                    [
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l7-w1'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l7-w2'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l7-w3'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l7-w4'
+                        },
+                        {
+                            letter: '',
+                            status: '',
+                            id: 'l7-w5'
+                        }
+                    ]
+                ]);
+                setPosition({
+                    column: 0,
+                    row: 0
+                });
+                setKeys([
+                    [
+                        {
+                            id: 1,
+                            value: "Q",
+                            status: ''
+                        },
+                        {
+                            id: 2,
+                            value: "W",
+                            status: ''
+                        },
+                        {
+                            id: 3,
+                            value: "E",
+                            status: ''
+                        },
+                        {
+                            id: 4,
+                            value: "R",
+                            status: ''
+                        },
+                        {
+                            id: 5,
+                            value: "T",
+                            status: ''
+                        },
+                        {
+                            id: 6,
+                            value: "Y",
+                            status: ''
+                        },
+                        {
+                            id: 7,
+                            value: "U",
+                            status: ''
+                        },
+                        {
+                            id: 8,
+                            value: "I",
+                            status: ''
+                        },
+                        {
+                            id: 9,
+                            value: "O",
+                            status: ''
+                        },
+                        {
+                            id: 10,
+                            value: "P",
+                            status: ''
+                        },
+                        {
+                            id: 11,
+                            value: "←",
+                            status: ''
+                        }
+                    ],
+                    [
+                        {
+                            id: 12,
+                            value: "A",
+                            status: ''
+                        },
+                        {
+                            id: 13,
+                            value: "S",
+                            status: ''
+                        },
+                        {
+                            id: 14,
+                            value: "D",
+                            status: ''
+                        },
+                        {
+                            id: 15,
+                            value: "F",
+                            status: ''
+                        },
+                        {
+                            id: 16,
+                            value: "G",
+                            status: ''
+                        },
+                        {
+                            id: 17,
+                            value: "H",
+                            status: ''
+                        },
+                        {
+                            id: 18,
+                            value: "J",
+                            status: ''
+                        },
+                        {
+                            id: 19,
+                            value: "K",
+                            status: ''
+                        },
+                        {
+                            id: 20,
+                            value: "L",
+                            status: ''
+                        },
+                        {
+                            id: 21,
+                            value: "↲",
+                            status: ''
+                        }
+                    ],
+                    [
+                        {
+                            id: 22,
+                            value: "Z",
+                            status: ''
+                        },
+                        {
+                            id: 23,
+                            value: "X",
+                            status: ''
+                        },
+                        {
+                            id: 24,
+                            value: "C",
+                            status: ''
+                        },
+                        {
+                            id: 25,
+                            value: "V",
+                            status: ''
+                        },
+                        {
+                            id: 26,
+                            value: "B",
+                            status: ''
+                        },
+                        {
+                            id: 27,
+                            value: "N",
+                            status: ''
+                        },
+                        {
+                            id: 28,
+                            value: "M",
+                            status: ''
+                        }
+                    ]
+                ]);
+            }
         }
         else {
             setWin(false);
@@ -1251,8 +1597,18 @@ export default function DWord() {
     // toast para fim de jogo perdido
     useEffect(() => {
         if (position.row > 6) {
+            const str = response.map(obj => obj.letter).join("");
+            const date = new Date().toLocaleDateString();
+            const pos = allResponses.findIndex(w => w.date === date);
+
             toast.error('a palavra era ' + response.map(obj => obj.letter).join(""))
-            if (opt === 0) {
+            if (
+                allResponses[pos].response === str
+                &&
+                opt === 0
+                &&
+                (localStorage.getItem('dWord-daily') === null || localStorage.getItem('dWord-daily') === undefined)
+            ) {
                 const date = new Date().toLocaleDateString();
                 localStorage.setItem("dWord-daily", JSON.stringify({
                     date: date,
@@ -1262,7 +1618,7 @@ export default function DWord() {
                 }));
             }
         }
-    }, [position, response, game, keys, opt])
+    }, [position, response, game, keys, opt, allResponses])
 
     // toast para fim de jogo ganho e controle de tempo
     useEffect(() => {
@@ -1290,15 +1646,25 @@ export default function DWord() {
     // se ganhou salva 
     useEffect(() => {
         if (win && opt === 0) {
+            const str = response.map(obj => obj.letter).join("");
             const date = new Date().toLocaleDateString();
-            localStorage.setItem("dWord-daily", JSON.stringify({
-                date: date,
-                status: false,
-                game: game,
-                keys: keys
-            }));
+            const pos = allResponses.findIndex(w => w.date === date);
+
+            console.log(allResponses[pos].response === str);
+
+            if (
+                allResponses[pos].response === str
+                &&
+                (localStorage.getItem('dWord-daily') === null || localStorage.getItem('dWord-daily') === undefined)
+            )
+                localStorage.setItem("dWord-daily", JSON.stringify({
+                    date: date,
+                    status: false,
+                    game: game,
+                    keys: keys
+                }));
         }
-    }, [win, game, keys, opt])
+    }, [win, game, keys, opt, allResponses, response])
 
     return (
         <Page>
