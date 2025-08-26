@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import Page from "../templates/Page";
 
 import all_words from '../data/words.json';
+import all_responses from '../data/words_daily.json';
 import toast from "react-hot-toast";
 import Keyboard from "../components/Keyboard";
 import Window from "../components/Window/Window";
@@ -9,9 +10,10 @@ import { Contexto } from "../App";
 import RowInput from "../components/rowInputs/RowInput";
 
 export default function DWord() {
-    const { options } = useContext(Contexto);
+    const { options, opt } = useContext(Contexto);
     const [seconds, setSeconds] = useState(0);
     const [response, setResponse] = useState([]);
+    const [allResponses, setAllResponses] = useState([]);
     const [words, setWords] = useState([]);
     const [position, setPosition] = useState({
         column: 0,
@@ -359,27 +361,411 @@ export default function DWord() {
         ]
     ]);
 
+    // ver se ja jogou
+    useEffect(() => {
+        if (opt === 0) {
+            const dw = localStorage.getItem('dWord-daily');
+            if (dw !== null && dw !== undefined) {
+                const dwJson = JSON.parse(dw);
+                if (dwJson.date === new Date().toLocaleDateString()) {
+                    setWin(dwJson.status);
+                    setGame(dwJson.game);
+                    setPosition({
+                        column: 6,
+                        row: 0
+                    })
+                    setKeys(dwJson.keys);
+                }
+                else {
+                    localStorage.removeItem('dWord-daily');
+                }
+            }
+        }
+        else {
+            setWin(false);
+            setGame([
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l1-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l1-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l1-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l1-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l1-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l2-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l2-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l2-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l2-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l2-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l3-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l3-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l3-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l3-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l3-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l4-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l4-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l4-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l4-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l4-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l5-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l5-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l5-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l5-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l5-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l6-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l6-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l6-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l6-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l6-w5'
+                    }
+                ],
+                [
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l7-w1'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l7-w2'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l7-w3'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l7-w4'
+                    },
+                    {
+                        letter: '',
+                        status: '',
+                        id: 'l7-w5'
+                    }
+                ]
+            ]);
+            setPosition({
+                column: 0,
+                row: 0
+            });
+            setKeys([
+                [
+                    {
+                        id: 1,
+                        value: "Q",
+                        status: ''
+                    },
+                    {
+                        id: 2,
+                        value: "W",
+                        status: ''
+                    },
+                    {
+                        id: 3,
+                        value: "E",
+                        status: ''
+                    },
+                    {
+                        id: 4,
+                        value: "R",
+                        status: ''
+                    },
+                    {
+                        id: 5,
+                        value: "T",
+                        status: ''
+                    },
+                    {
+                        id: 6,
+                        value: "Y",
+                        status: ''
+                    },
+                    {
+                        id: 7,
+                        value: "U",
+                        status: ''
+                    },
+                    {
+                        id: 8,
+                        value: "I",
+                        status: ''
+                    },
+                    {
+                        id: 9,
+                        value: "O",
+                        status: ''
+                    },
+                    {
+                        id: 10,
+                        value: "P",
+                        status: ''
+                    },
+                    {
+                        id: 11,
+                        value: "←",
+                        status: ''
+                    }
+                ],
+                [
+                    {
+                        id: 12,
+                        value: "A",
+                        status: ''
+                    },
+                    {
+                        id: 13,
+                        value: "S",
+                        status: ''
+                    },
+                    {
+                        id: 14,
+                        value: "D",
+                        status: ''
+                    },
+                    {
+                        id: 15,
+                        value: "F",
+                        status: ''
+                    },
+                    {
+                        id: 16,
+                        value: "G",
+                        status: ''
+                    },
+                    {
+                        id: 17,
+                        value: "H",
+                        status: ''
+                    },
+                    {
+                        id: 18,
+                        value: "J",
+                        status: ''
+                    },
+                    {
+                        id: 19,
+                        value: "K",
+                        status: ''
+                    },
+                    {
+                        id: 20,
+                        value: "L",
+                        status: ''
+                    },
+                    {
+                        id: 21,
+                        value: "↲",
+                        status: ''
+                    }
+                ],
+                [
+                    {
+                        id: 22,
+                        value: "Z",
+                        status: ''
+                    },
+                    {
+                        id: 23,
+                        value: "X",
+                        status: ''
+                    },
+                    {
+                        id: 24,
+                        value: "C",
+                        status: ''
+                    },
+                    {
+                        id: 25,
+                        value: "V",
+                        status: ''
+                    },
+                    {
+                        id: 26,
+                        value: "B",
+                        status: ''
+                    },
+                    {
+                        id: 27,
+                        value: "N",
+                        status: ''
+                    },
+                    {
+                        id: 28,
+                        value: "M",
+                        status: ''
+                    }
+                ]
+            ]);
+        }
+    }, [opt]);
+
     // pegar as palavras
     useEffect(() => {
         setWords(all_words);
+        setAllResponses(all_responses);
     }, []);
 
     // definir a resposta
     useEffect(() => {
-        if (Array.isArray(words) && words.length > 0) {
-            const pos = Math.floor(Math.random() * words.length);
-            const str = String(words[pos] ?? ""); // força ser string
-            const chars = str.split("");
-            const inArrayObj = chars.map(char => {
-                return {
-                    letter: char,
-                    status: ''
-                }
-            })
-            setResponse(inArrayObj);
+        if (opt === 1) {
+            if (Array.isArray(words) && words.length > 0) {
+                const pos = Math.floor(Math.random() * words.length);
+                const str = String(words[pos] ?? ""); // força ser string
+                const chars = str.split("");
+                const inArrayObj = chars.map(char => {
+                    return {
+                        letter: char,
+                        status: ''
+                    }
+                })
+                setResponse(inArrayObj);
+            }
         }
-
-    }, [words]);
+        else
+            if (Array.isArray(allResponses) && allResponses.length > 0) {
+                const date = new Date().toLocaleDateString();
+                const pos = allResponses.findIndex(w => w.date === date);
+                const str = String(allResponses[pos].response ?? "");
+                const chars = str.split("");
+                const inArrayObj = chars.map(char => {
+                    return {
+                        letter: char,
+                        status: ''
+                    }
+                })
+                setResponse(inArrayObj);
+            }
+    }, [words, opt, allResponses]);
 
     // funcao para alteracoes na palavra e gerenciador de clique de posicao
     useEffect(() => {
@@ -864,9 +1250,17 @@ export default function DWord() {
 
     // toast para fim de jogo perdido
     useEffect(() => {
-        if (position.row > 6)
+        if (position.row > 6) {
             toast.error('a palavra era ' + response.map(obj => obj.letter).join(""))
-    }, [position, response])
+            const date = new Date().toLocaleDateString();
+            localStorage.setItem("dWord-daily", JSON.stringify({
+                date: date,
+                status: false,
+                game: game,
+                keys: keys
+            }));
+        }
+    }, [position, response, game, keys])
 
     // toast para fim de jogo ganho e controle de tempo
     useEffect(() => {
@@ -890,6 +1284,19 @@ export default function DWord() {
         }
         return `${min < 10 ? `0${min}` : min}:${sec < 10 ? `0${sec}` : sec} minutos`;
     }
+
+    // se ganhou salva 
+    useEffect(() => {
+        if (win) {
+            const date = new Date().toLocaleDateString();
+            localStorage.setItem("dWord-daily", JSON.stringify({
+                date: date,
+                status: false,
+                game: game,
+                keys: keys
+            }));
+        }
+    }, [win, game, keys])
 
     return (
         <Page>
@@ -963,12 +1370,16 @@ export default function DWord() {
                                             </h3>
                                         </>
                                 }
-                                <button
-                                    className="gw-btn"
-                                    onClick={handleReset}
-                                >
-                                    Novo jogo
-                                </button>
+                                {
+                                    opt === 1 ?
+                                        <button
+                                            className="gw-btn"
+                                            onClick={handleReset}
+                                        >
+                                            Novo jogo
+                                        </button>
+                                        : ''
+                                }
                                 <br />
                             </div>
                             : ''

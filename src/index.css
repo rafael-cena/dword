@@ -100,6 +100,23 @@ nav {
   }
 }
 
+.select {
+  background: var(--bg);
+  outline: none;
+  border: none;
+  color: var(--text);
+  padding: 4px 8px;
+  text-align: center;
+  cursor: pointer;
+
+  .option {
+    color: var(--text);
+    background: var(--bg);
+    text-align: center;
+    cursor: pointer;
+  }
+}
+
 .footer {
   border-top: 1px solid var(--border);
   box-shadow: 0 -2px 4px var(--border);
@@ -211,7 +228,6 @@ nav {
   font-size: max(1.6dvw, 24px);
   text-shadow: 0 0 2px var(--border);
 }
-
 
 .keyboard {
   display: flex;

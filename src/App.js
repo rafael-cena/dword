@@ -8,6 +8,7 @@ export const Contexto = createContext();
 function App() {
   const [theme, setTheme] = useState('escuro');
   const [options, setOptions] = useState(false);
+  const [opt, setOpt] = useState(0);
 
   useEffect(() => {
     if (options) {
@@ -25,7 +26,7 @@ function App() {
   }, [options]);
 
   return (
-    <Contexto.Provider value={{ theme, setTheme, options, setOptions }}>
+    <Contexto.Provider value={{ theme, setTheme, options, setOptions, opt, setOpt }}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DWord />} />
