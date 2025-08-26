@@ -1262,7 +1262,7 @@ export default function DWord() {
                 }));
             }
         }
-    }, [position, response, game, keys])
+    }, [position, response, game, keys, opt])
 
     // toast para fim de jogo ganho e controle de tempo
     useEffect(() => {
@@ -1298,8 +1298,8 @@ export default function DWord() {
                 keys: keys
             }));
         }
-    }, [win, game, keys])
- 
+    }, [win, game, keys, opt])
+
     return (
         <Page>
             <div
