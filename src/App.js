@@ -2,6 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import DWord from "./pages/DWord";
 import { createContext, useEffect, useState } from "react";
 import { Toaster } from "react-hot-toast";
+import Error from "./pages/Error";
 
 export const Contexto = createContext();
 
@@ -30,6 +31,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<DWord />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Toaster />
       </BrowserRouter>

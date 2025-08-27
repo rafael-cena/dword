@@ -418,6 +418,59 @@ nav {
   }
 }
 
+.error-container {
+  width: 100%;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  margin: 4dvh 0 0;
+}
+
+.et-title {
+  font-size: max(2.5dvw, 32px);
+  font-family: "Alumni Sans SC", sans-serif;
+  font-weight: bold;
+  color: var(--text)
+}
+
+.et-subtitle {
+  font-size: max(1.2dvw, 16px);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  color: var(--text);
+}
+
+.et-link {
+  font-size: max(1dvw, 12px);
+  text-decoration: none;
+  font-family: "Alkatra", sans-serif;
+  color: var(--text);
+  padding: 0 8px;
+
+  background-image: linear-gradient(var(--gold));
+  background-position: center bottom;
+  background-size: 0 2px;
+  background-repeat: no-repeat;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-size: 100% 2px;
+    transform: scale(1.08);
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1dvh 4dvw;
