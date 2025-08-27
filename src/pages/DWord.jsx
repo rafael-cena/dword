@@ -1081,6 +1081,15 @@ export default function DWord() {
         setAllResponses(all_responses);
     }, []);
 
+    // data de hoje em 'DD/MM/AAAA'
+    function getTodayDate() {
+        const d = new Date();
+        const day = String(d.getDate()).padStart(2, '0');
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const year = d.getFullYear();
+        return `${day}/${month}/${year}`;
+    }
+
     // definir a resposta
     useEffect(() => {
         if (opt === 1) {
@@ -1099,7 +1108,7 @@ export default function DWord() {
         }
         else
             if (Array.isArray(allResponses) && allResponses.length > 0) {
-                const date = new Date().toLocaleDateString();
+                const date = getTodayDate();
                 const pos = allResponses.findIndex(w => w.date === date);
                 const str = String(allResponses[pos].response ?? "");
                 const chars = str.split("");
@@ -1598,7 +1607,7 @@ export default function DWord() {
     useEffect(() => {
         if (position.row > 6) {
             const str = response.map(obj => obj.letter).join("");
-            const date = new Date().toLocaleDateString();
+            const date = getTodayDate();
             const pos = allResponses.findIndex(w => w.date === date);
 
             toast.error('a palavra era ' + response.map(obj => obj.letter).join(""))
@@ -1609,7 +1618,7 @@ export default function DWord() {
                 &&
                 (localStorage.getItem('dWord-daily') === null || localStorage.getItem('dWord-daily') === undefined)
             ) {
-                const date = new Date().toLocaleDateString();
+                const date = getTodayDate();
                 localStorage.setItem("dWord-daily", JSON.stringify({
                     date: date,
                     status: false,
@@ -1647,7 +1656,7 @@ export default function DWord() {
     useEffect(() => {
         if (win && opt === 0) {
             const str = response.map(obj => obj.letter).join("");
-            const date = new Date().toLocaleDateString();
+            const date = getTodayDate();
             const pos = allResponses.findIndex(w => w.date === date);
 
             console.log(allResponses[pos].response === str);
