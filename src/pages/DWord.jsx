@@ -367,7 +367,7 @@ export default function DWord() {
             const dw = localStorage.getItem('dWord-daily');
             if (dw !== null && dw !== undefined) {
                 const dwJson = JSON.parse(dw);
-                if (dwJson.date === new Date().toLocaleDateString()) {
+                if (dwJson.date === getTodayDate()) {
                     setWin(dwJson.status);
                     setGame(dwJson.game);
                     setPosition({
