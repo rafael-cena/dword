@@ -293,12 +293,12 @@ nav {
     font-size: 36px;
     transition: all 0.3s ease-in-out;
     border-radius: 8px;
-    border: none;
     font-family: "Alumni Sans SC", sans-serif;
     font-style: italic;
     font-weight: bold;
-    background: var(--text);
-    color: var(--bg);
+    border: 2px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
   }
 
   .letter-input-focus {
@@ -312,7 +312,7 @@ nav {
 
   .quase {
     background-color: yellow;
-    color: var(--bg);
+    color: var(--bg-dark);
   }
 
   .errado {
